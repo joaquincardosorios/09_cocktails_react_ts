@@ -15,11 +15,13 @@ import { Drink, SearchFilters } from "../types"
 
 export async function getRecipes(filters: SearchFilters){
     const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${filters.ingredient}`
+    console.log(url)
     const {data} = await axios(url)
     const result = DrinksAPIResponseSchema.safeParse(data)
     if(result.success){
         return result.data
     }
+    return {drinks: []}
 }
 
 export async function getRecipe(id: Drink['idDrink']){
