@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useEffect, useMemo, useState } from "react";
+import { ChangeEvent, FormEvent, useMemo, useState } from "react";
 import {  NavLink, useLocation } from "react-router-dom";
 import { useAppStore } from "../store/useAppStore";
 import { SearchFilters } from "../types";
@@ -9,19 +9,19 @@ export default function Header() {
   
   const [searchFilters, setSearchFilters] = useState<SearchFilters>({
     ingredient: '',
-    category: ''
+    // category: ''
   })
   
   const {pathname} = useLocation()
   const isHome = useMemo( () => pathname === '/' ,[pathname])
   
-  const fetchCategories = useAppStore( state => state.fetchCategories)
+  // const fetchCategories = useAppStore( state => state.fetchCategories)
   const searchRecipes = useAppStore( state => state.searchRecipes)
-  const categories = useAppStore( state => state.categories)
+  // const categories = useAppStore( state => state.categories)
   
-  useEffect( () => {
-    fetchCategories()
-  },[])
+  // useEffect( () => {
+  //   fetchCategories()
+  // },[])
 
   const handleChange = (e: ChangeEvent<HTMLInputElement> |ChangeEvent<HTMLSelectElement> ) => {
     setSearchFilters({
@@ -85,12 +85,12 @@ export default function Header() {
                     value={searchFilters.ingredient}
                   />
                 </div>
-                <div className="space-y-4">
+                {/*<div className="space-y-4">
                   <label 
                     htmlFor="category"
                     className="block text-white uppercase font-extrabold text-lg"
                   >Categoria</label>
-                  <select 
+                   <select 
                     id="category"
                     name="category"
                     className="w-full p-3 rounded-lg focus:outline-none"
@@ -105,8 +105,8 @@ export default function Header() {
             
                       >{category.strCategory}</option>
                     ))}
-                  </select>
-                </div>
+                  </select> 
+                </div>*/}
                 <input type="submit" value="Buscar Recetas" 
                   className="cursor-pointer bg-orange-800 hover:bg-orange-900 text-white font-extrabold w-full p-2 rounded-lg uppercase"
                 />
