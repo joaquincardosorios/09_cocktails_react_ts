@@ -1,12 +1,12 @@
 import {z} from 'zod'
 
-// export const CategoriesAPIResponseSchema = z.object({
-//     drinks: z.array(
-//         z.object({
-//             strCategory: z.string()
-//         })
-//     )
-// })
+export const CategoriesAPIResponseSchema = z.object({
+    drinks: z.array(
+        z.object({
+            strCategory: z.string()
+        })
+    )
+})
 
 export const SearchFilterSchema = z.object({
     ingredient: z.string(),
@@ -27,6 +27,7 @@ export const DrinksAPIResponseSchema = z.object({
 
 export const RecipeAPIResponseSchema = z.object({
     idDrink: z.string(),
+    strCategory: z.string(),
     strDrink: z.string(),
     strDrinkThumb: z.string(),
     strInstructions: z.string(),
