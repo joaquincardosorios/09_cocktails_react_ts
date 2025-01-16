@@ -45,10 +45,10 @@ export const createRecipesSlice : StateCreator<RecipeSliceType> = (set) => ({
         })
     },
     closeModal: () =>{
-        set({
-            modal: false,
-            selectedRecipe: {} as Recipe
-        })
+        set({ modal: false });
+        setTimeout(() => {
+            set({ selectedRecipe: {} as Recipe });
+        }, 300);
     }
 })
 
